@@ -9,6 +9,7 @@ import time
 import json
 import os
 import requests
+import tempfile
 
 def send_telegram_message(message):
     TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -44,11 +45,12 @@ SLOTS_FILE = "slots_seen.json"
 # --- Lancement navigateur ---
 options = Options()
 options.add_argument("--start-maximized")
-driver = webdriver.Chrome(options=options)
-options.add_argument("--user-data-dir=/tmp/chrome-user-data")
+options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
 options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(options=options)
 
 wait = WebDriverWait(driver, 20)
 

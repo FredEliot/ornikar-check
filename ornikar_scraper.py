@@ -45,6 +45,11 @@ SLOTS_FILE = "slots_seen.json"
 options = Options()
 options.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=options)
+options.add_argument("--user-data-dir=/tmp/chrome-user-data")
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
 wait = WebDriverWait(driver, 20)
 
 # --- Fonction pour accepter les cookies et bloquer le popup si présent ---

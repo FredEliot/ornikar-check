@@ -25,6 +25,8 @@ jobs:
 
       - name: Run script
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          ORNIKAR_EMAIL: ${{ secrets.ORNIKAR_LOGIN }}
+          ORNIKAR_PASSWORD: ${{ secrets.ORNIKAR_PASSWORD }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python ornikar_scraper.py

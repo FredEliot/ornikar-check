@@ -79,10 +79,16 @@ def gerer_cookies_et_popups():
 
 # --- Accès page d'accueil puis page de connexion ---
 driver.get("https://app.ornikar.com")
+with open("page.html", "w", encoding="utf-8") as f:
+    f.write(driver.page_source)
+
 time.sleep(2)
 gerer_cookies_et_popups()
 
 driver.get("https://app.ornikar.com/connexion")
+with open("page.html", "w", encoding="utf-8") as f:
+    f.write(driver.page_source)
+
 time.sleep(2)
 gerer_cookies_et_popups()
 
